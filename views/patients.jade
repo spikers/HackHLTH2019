@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Follow Up for Patients
+  p This is patient information: 
+  table
+    thead
+      th Category
+      th Type
+      th Value
+      th Comment
+    tbody
+      each val, index in patientObservations
+        tr
+          td=val.category
+          td=val.type
+          td=val.value
+          td=val.comment

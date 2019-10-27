@@ -1,0 +1,63 @@
+extends layout
+block content
+  h1 Follow Up for Providers
+  h2 Patient View: #{patient.patientId}
+  table
+    thead
+      th ObservationId
+      th Category
+      th Type
+      th Value
+      th Comment
+    tbody
+      each val, index in patient.patientObservations
+        tr
+          td=val.id
+          td=val.category
+          td=val.type
+          td=val.value
+          td
+            textarea=val.comment
+  button#save-data Save
+
+  script.
+    (function () {
+      document.addEventListener('DOMContentLoaded', function () {
+          var saveButton = document.getElementById('save-data');
+          saveButton.addEventListener('click', function () {
+            var rows = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+            var entries = [];
+            for (var i = 0; i < rows.length; i++) {
+              var currentItem = {
+                observationId: rows[i].getElementsByTagName('td')[0].textContent,
+                comment: rows[i].getElementsByTagName('textarea')[0].value
+              };
+              entries.push(currentItem);
+            }
+            console.log('Entries: ', entries);
+            var stringEntries = JSON.stringify({ entries: entries });
+
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener("load", function (data) {
+              console.log('data: ', data);
+              window.location.replace('/Providers');
+            });
+            xhr.open("POST", "./SaveData");
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(stringEntries);
+
+
+          });
+      });
+    })();
+
+  //- table
+  //-   thead
+  //-     th Patient ID
+  //-     th Patient Name
+  //-   tbody
+  //-     each val, index in basicPatientData
+  //-       tr
+  //-         td=val.id
+  //-         td
+  //-           a(href=val.url) #{val.name}

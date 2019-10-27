@@ -1,0 +1,88 @@
+category > coding > display
+code > coding > display
+
+valueCodeableConcept > coding > display
+OR
+valueQuantity > value
+valueQuantity > unit
+OR
+valueString (this is a string)
+valueBoolean
+valueInteger
+OR
+valueRange > low
+valueRange > high
+OR
+valueRatio > numerator
+valueRatio > denominator
+OR
+valueSampledData > lowerLimit
+valueSampledData > upperLimit
+OR
+valueTime
+OR 
+valueDateTime
+OR
+valuePeriod > start
+valuePeriod > end
+
+
+
+if (ob.hasOwnProperty('valueCodeableConcept'))
+{
+    
+}
+else if (ob.hasOwnProperty('valueQuantity'))
+{
+
+}
+else if (ob.hasOwnProperty('valueString'))
+{
+
+}
+else if (ob.hasOwnProperty('valueBoolean'))
+{
+
+}
+else if (ob.hasOwnProperty('valueInteger'))
+{
+
+}
+else if (ob.hasOwnProperty('valueRange'))
+{
+
+}
+else if (ob.hasOwnProperty('valueRatio'))
+{
+
+}
+else if (ob.hasOwnProperty('valueSampledData'))
+{
+
+}
+else if (ob.hasOwnProperty('valueTime'))
+{
+
+}
+else if (ob.hasOwnProperty('valueDateTime'))
+{
+
+}
+else if (ob.hasOwnProperty('valuePeriod'))
+{
+
+}
+
+
+
+valueQuantity
+valueCodeableConcept
+valueString
+valueBoolean
+valueInteger
+valueRange
+valueRatio
+valueSampledData
+valueTime
+valueDateTime
+valuePeriod

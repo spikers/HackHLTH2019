@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Follow Up for Providers
+  table
+    thead
+      th Patient ID
+      th Patient Name
+    tbody
+      each val, index in basicPatientData
+        tr
+          td=val.patientId
+          td
+            a(href=val.url) #{val.name}
